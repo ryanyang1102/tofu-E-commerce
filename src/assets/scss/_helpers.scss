@@ -1,0 +1,29 @@
+.fw_bold {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+}
+
+.letter-spacing-1 {
+  letter-spacing: .61px;
+  @media(min-width: 992px){
+    letter-spacing: .7px;
+  }
+}
+.letter-spacing-2 {
+  letter-spacing: 1.6px;
+  @media(min-width: 992px){
+    letter-spacing: 1.92px;
+  }
+}
+.letter-spacing-3 {
+  letter-spacing: 1.75px;
+  @media(min-width: 992px){
+    letter-spacing: 2px;
+  }
+}
+.letter-spacing-4 {
+  letter-spacing: 2.25px;
+  @media(min-width: 992px){
+    letter-spacing: 3px;
+  }
+}
