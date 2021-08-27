@@ -1,0 +1,47 @@
+@mixin icon-bar {
+  .icon-bar {
+    width: 22px;
+    height: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    transition: all 0.4s;
+    display: block;
+    &:first-child {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%;
+      background-color: $danger;
+    }
+    &:nth-child(2) {
+      opacity: 0;
+      background-color: $lightGray;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+      transform-origin: 10% 90%;
+      background-color: $danger;
+    }
+  }
+}
+
+@mixin icon-bar-collapsed {
+  .icon-bar{
+    width: 22px;
+    height: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    transition: all 0.4s;
+    display: block;
+    &:first-child {
+      transform: rotate(0);
+      background-color: $lightGray;
+    }
+    &:nth-child(2) {
+      opacity: 1;
+      background-color: $lightGray;
+    }
+    &:nth-child(3) {
+      transform: rotate(0);
+      background-color: $lightGray;
+    }
+  }
+}

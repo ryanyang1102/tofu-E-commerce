@@ -1,6 +1,8 @@
 @import "bootstrap/bootstrapImport";
 @import "base";
-@import "helpers";
-@import "fa.all";
-@import "google-fonts";
+@import "helpers/helpers";
+// @import "fa.all";
+@import "helpers/icons";
+@import "helpers/google-fonts";
 @import "pages/layout";
+@import "pages/home";

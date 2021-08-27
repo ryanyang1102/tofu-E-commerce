@@ -29,7 +29,7 @@ $blue:    #004f80 !default; // main
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #d63384 !default;
-$red:     #dc3545 !default;
+$red:     #d32d26 !default; //
 $orange:  #fd7e14 !default;
 $yellow:  #ffc107 !default;
 $green:   #198754 !default;
@@ -49,6 +49,7 @@ $darkGray:      #141414 !default; // darkGray
 $lightGray:     #666666 !default; // lightGray
 $gray_110:      #777777 !default; // gray01
 $gray_210:      #333333 !default; // gray02
+$red:           $red !default;
 
 
 // theme-colors-map
@@ -65,6 +66,7 @@ $theme-colors: (
   "lightGray":  $lightGray,
   "gray_110":   $gray_110,
   "gray_210":   $gray_210,
+  "red":        $red,
 ) !default;
 
 
@@ -118,3 +120,11 @@ $link-hover-color:                        $primary !default;
 
 // shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration:                   null !default;
+
+
+// scss-docs-start carousel-variables
+$carousel-control-color:             $primary !default; //
+$carousel-control-width:             15% !default;
+$carousel-control-opacity:           .5 !default;
+$carousel-control-hover-opacity:     .9 !default;
+$carousel-control-transition:        opacity .15s ease !default;
