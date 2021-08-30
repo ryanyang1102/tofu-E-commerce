@@ -30,6 +30,11 @@
             <li class="nav-item ">
               <a class="nav-link px-2" href="#">店舖情報</a>
             </li>
+            <li class="nav-item ">
+              <router-link to="/login" class="nav-link px-2">
+                管理員登入
+              </router-link>
+            </li>
           </ul>
         </div>
         <a class="d-none d-md-block nav-cart text-primary ms-4" href="#">
