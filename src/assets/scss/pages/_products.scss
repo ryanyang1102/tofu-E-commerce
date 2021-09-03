@@ -1,0 +1,32 @@
+.product_menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media(min-width: 992px){
+    position: sticky;
+    top: 200px;
+  }
+}
+.list-group-item {
+  cursor: pointer;
+  &:hover,&:focus {
+    background-color: shade-color($primary, 40%);
+    color: $light;
+  }
+  &.active {
+    background-color: $primary;
+    color: $light;
+    border-color: $light;
+  }
+}
+
+.card_product {
+  width: 250px;
+}
+.card_img {
+  height: 150px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}

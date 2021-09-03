@@ -1,18 +1,33 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-import Home from '../views/Home.vue'
-import Login from '@/views/backend/Login.vue'
-import Dashboard from '@/views/backend/Dashboard'
-import Products from '@/views/backend/Products'
+import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '/',
+        name: 'Index',
+        component: () => import('@/views/frontend/Index.vue'),
+        meta: {
+          title: '日作 - 豆腐工房'
+        }
+      },
+      {
+        path: 'products',
+        name: 'Products',
+        component: () => import('@/views/frontend/Products.vue')
+      },
+      {
+        path: 'product/:productId',
+        name: 'Product',
+        component: () => import('@/views/frontend/Product.vue')
+      }
+    ]
   },
   {
     path: '*',
@@ -21,17 +36,17 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: () => import('@/views/backend/Login.vue')
   },
   {
     path: '/admin',
     name: 'Dashboard',
-    component: Dashboard,
+    component: () => import('@/views/backend/Dashboard.vue'),
     children: [
       {
-        path: 'products',
-        name: 'ProductManage',
-        component: Products,
+        path: 'productsManage',
+        name: 'ProductsManage',
+        component: () => import('@/views/backend/ProductsManage.vue'),
         meta: { requiresAuth: true }
       }
     //   {
@@ -47,14 +62,6 @@ const routes = [
     //     meta: { requiresAuth: true }
     //   },
     ]
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
 

@@ -16,7 +16,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav fz-4 ms-md-auto letter-spacing-2">
             <li class="nav-item me-2">
-              <a class="nav-link px-2" href="#">首頁</a>
+              <router-link to="/" class="nav-link px-2">
+                首頁
+              </router-link>
             </li>
             <li class="nav-item me-2">
               <a class="nav-link px-2" href="#">日出而作</a>
@@ -25,7 +27,9 @@
               <a class="nav-link px-2" href="#">にがり工法</a>
             </li>
             <li class="nav-item me-2">
-              <a class="nav-link px-2" href="#">產品介紹</a>
+              <router-link to="/products" class="nav-link px-2">
+                產品介紹
+              </router-link>
             </li>
             <li class="nav-item ">
               <a class="nav-link px-2" href="#">店舖情報</a>

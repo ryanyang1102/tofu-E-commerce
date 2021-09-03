@@ -16,17 +16,17 @@ export default {
   components: {
     Navbar
     // Alert
+  },
+  created () {
+    const token = document.cookie.replace(
+      /(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,
+      '$1'
+    )
+    if (token !== '') {
+      this.axios.defaults.headers.common.Authorization = token
+    } else {
+      this.$router.push('/login')
+    }
   }
-  // created() {
-  //   const token = document.cookie.replace(
-  //     /(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,
-  //     '$1'
-  //   );
-  //   if(token !== "") {
-  //     this.axios.defaults.headers.common.Authorization = token;
-  //   } else {
-  //     this.$router.push('/login');
-  //   };
-  // },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <section id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <section id="carouselExampleFade" class="carousel slide carousel-fade nav_space" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="@/assets/image/banner01.jpeg" class="d-block w-100" alt="banner-pic01">

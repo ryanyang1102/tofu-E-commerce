@@ -57,14 +57,14 @@
     <Pagination :pagination='pagination' @emitProductPage="getProducts" />
     <!-- Product-modal -->
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content border-0">
           <div class="modal-header bg-dark text-white">
             <h5 class="modal-title" id="exampleModalLabel">
               <span>新增產品</span>
             </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -152,7 +152,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">取消</button>
             <button type="button" class="btn btn-primary" @click="updateProduct">確認</button>
           </div>
         </div>
@@ -166,7 +166,7 @@
             <h5 class="modal-title" id="exampleModalLabel">
               <span>刪除產品</span>
             </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -174,7 +174,7 @@
             是否刪除 <strong class="text-danger">{{ tempProduct.title }}</strong> 商品
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">取消</button>
             <button type="button" class="btn btn-danger"
               @click="deleteProduct"
               >確認刪除</button>
@@ -186,7 +186,8 @@
 </template>
 
 <script>
-import $ from 'jquery'
+// import $ from 'jquery'
+import { Modal } from 'bootstrap'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -202,7 +203,9 @@ export default {
       isLoading: false,
       status: {
         fileUploading: false
-      }
+      },
+      productModal: null,
+      delProductModal: null
     }
   },
   methods: {
@@ -225,25 +228,27 @@ export default {
         this.tempProduct = Object.assign({}, item)
         this.isNew = false
       }
-      $('#productModal').modal('show')
+      // $('#productModal').modal('show')
+      // console.log(new bootstrap)
+      this.productModal.show()
     },
     deleteModal (item) {
       this.tempProduct = item
-      $('#delProductModal').modal('show')
+      // $('#delProductModal').modal('show')
+      this.delProductModal.show()
     },
     deleteProduct () {
       const vm = this
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`
-      vm.$http.delete(api).then((response) => {
-        // console.log(response.data);
+      vm.$http.delete(api).then(response => {
+        console.log(response.data)
         if (response.data.success) {
-          $('#delProductModal').modal('hide')
           vm.getProducts()
         } else {
-          $('#delProductModal').modal('hide')
           vm.getProducts()
           console.log('刪除失敗！')
         }
+        this.delProductModal.hide()
       })
     },
     updateProduct () {
@@ -253,17 +258,18 @@ export default {
       if (!vm.isNew) {
         api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`
         httpMethod = 'put'
-      };
+      }
       vm.$http[httpMethod](api, { data: vm.tempProduct }).then((response) => {
         // console.log(response.data);
         if (response.data.success) {
-          $('#productModal').modal('hide')
+          // $('#productModal').modal('hide')
           vm.getProducts()
         } else {
-          $('#productModal').modal('hide')
+          // $('#productModal').modal('hide')
           vm.getProducts()
           console.log('新增失敗！')
-        };
+        }
+        this.productModal.hide()
       })
     },
     uploadFile () {
@@ -301,6 +307,10 @@ export default {
   },
   created () {
     this.getProducts()
+  },
+  mounted () {
+    this.productModal = new Modal(document.getElementById('productModal'))
+    this.delProductModal = new Modal(document.getElementById('delProductModal'))
   }
 }
 </script>

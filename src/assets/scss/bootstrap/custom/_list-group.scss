@@ -1,0 +1,84 @@
+// Horizontal
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .list-group-horizontal#{$infix} {
+      flex-direction: row;
+
+      > .list-group-item {
+        margin-bottom: 6px;
+        @include border-radius(8px);
+        &:first-child,&:last-child {
+          @include border-radius(8px);
+        }
+
+        // &:last-child {
+        //   @include border-top-end-radius(8px);
+        //   @include border-bottom-end-radius(8px);
+        //   @include border-bottom-start-radius(0);
+        // }
+
+        &.active {
+          margin-top: 0;
+        }
+
+        + .list-group-item {
+          border-top-width: $list-group-border-width;
+          border-left-width: 1px;
+          margin-left: 6px;
+
+          &.active {
+            margin-left: 4px;
+            border-left-width: 1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Vertical
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .list-group-vertical#{$infix} {
+      flex-direction: column;
+
+      > .list-group-item {
+        margin-bottom: 0px;
+        @include border-radius(0);
+        &:first-child {
+          @include border-bottom-start-radius(0);
+          @include border-bottom-end-radius(0);
+          @include border-top-end-radius(8px);
+          @include border-top-start-radius(8px);
+        }
+
+        &:last-child {
+          @include border-top-start-radius(0);
+          @include border-top-end-radius(0);
+          @include border-bottom-start-radius(8px);
+          @include border-bottom-end-radius(8px);
+        }
+
+        &.active {
+          margin-top: 0;
+        }
+
+        + .list-group-item {
+          border-top-width: $list-group-border-width;
+          border-top-width: 0;
+          border-left-width: 1px;
+          margin-left: 0;
+
+          &.active {
+            margin-left: -$list-group-border-width;
+            border-left-width: $list-group-border-width;
+          }
+        }
+      }
+    }
+  }
+}
