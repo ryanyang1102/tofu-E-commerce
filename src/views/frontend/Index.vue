@@ -31,17 +31,35 @@
         </ul>
       </div>
     </section>
-    <div class="activeBg parallax_bg01">
-    </div>
+    <div class="activeBg parallax_01" id="parallax_01" :style="{'background-position-y': positionY1+'px'}"></div>
   </div>
 </template>
 
 <script>
 import Carousel from '@/components/frontend/Carousel.vue'
+
 export default {
   name: 'Index',
+  data () {
+    return {
+      // positionY1: 0,
+      // Y1: 0,
+      // ratio: 0.5
+    }
+  },
   components: {
     Carousel
   }
+  // methods: {
+  //   handleScroll () {
+  //     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+  //     this.positionY1 = this.Y1 - scrollTop * this.ratio
+  //   }
+  // },
+  // mounted () {
+  //   window.addEventListener('scroll', this.handleScroll)
+  //   const bgScroll = document.getElementById('parallax_01')
+  //   this.Y1 = bgScroll.offsetTop * this.ratio
+  // }
 }
 </script>

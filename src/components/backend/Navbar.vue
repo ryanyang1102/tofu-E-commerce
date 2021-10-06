@@ -12,19 +12,19 @@
       <div class="collapse navbar-collapse" id="backendNavbar">
         <ul class="navbar-nav fz-4 letter-spacing-2 ms-auto">
           <li class="nav-item mx-md-2 mx-auto">
-            <router-link class="nav-link p-2" aria-hidden="true" to="/admin/products">
+            <router-link class="nav-link p-2" aria-hidden="true" to="/admin/products_manage">
               <i class="fas fa-box-open"></i>
               產品列表
             </router-link>
           </li>
           <li class="nav-item mx-md-2 mx-auto">
-            <router-link class="nav-link p-2" aria-hidden="true" to="/admin/products">
+            <router-link class="nav-link p-2" aria-hidden="true" to="/admin/orders">
               <i class="far fa-list-alt"></i>
               訂單列表
             </router-link>
           </li>
           <li class="nav-item mx-md-2 mx-auto">
-            <router-link class="nav-link p-2" aria-hidden="true" to="/admin/products">
+            <router-link class="nav-link p-2" aria-hidden="true" to="/admin/coupons">
               <i class="fas fa-ticket-alt"></i>
               優惠券
             </router-link>

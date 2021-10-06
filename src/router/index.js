@@ -26,6 +26,21 @@ const routes = [
         path: 'product/:productId',
         name: 'Product',
         component: () => import('@/views/frontend/Product.vue')
+      },
+      {
+        path: 'cart',
+        name: 'Cart',
+        component: () => import('@/views/frontend/Cart.vue')
+      },
+      {
+        path: 'cart_order',
+        name: 'CartOrder',
+        component: () => import('@/views/frontend/CartOrder.vue')
+      },
+      {
+        path: 'cart_checkout/:orderId',
+        name: 'CartCheckout',
+        component: () => import('@/views/frontend/CartCheckout.vue')
       }
     ]
   },
@@ -44,23 +59,23 @@ const routes = [
     component: () => import('@/views/backend/Dashboard.vue'),
     children: [
       {
-        path: 'productsManage',
+        path: 'products_manage',
         name: 'ProductsManage',
         component: () => import('@/views/backend/ProductsManage.vue'),
         meta: { requiresAuth: true }
+      },
+      {
+        path: 'coupons',
+        name: 'Coupons',
+        component: () => import('@/views/backend/Coupons.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'orders',
+        name: 'Orders',
+        component: () => import('@/views/backend/Orders.vue'),
+        meta: { requiresAuth: true }
       }
-    //   {
-    //     path: 'coupons',
-    //     name: 'Coupons',
-    //     component: Coupons,
-    //     meta: { requiresAuth: true }
-    //   },
-    //   {
-    //     path: 'orders',
-    //     name: 'Orders',
-    //     component: Orders,
-    //     meta: { requiresAuth: true }
-    //   },
     ]
   }
 ]

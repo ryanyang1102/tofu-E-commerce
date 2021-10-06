@@ -42,7 +42,7 @@ export default {
           // console.log(token, expired)
           // 寫入 cookie
           document.cookie = `hexToken=${token};expires=${new Date(expired)};`
-          vm.$router.push('/admin/productsManage')
+          vm.$router.push('/admin/products_manage')
         };
       })
     }

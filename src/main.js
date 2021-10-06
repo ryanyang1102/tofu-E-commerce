@@ -1,22 +1,42 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Loading from 'vue-loading-overlay'
 // import '@popperjs/core'
 // import * as bootstrap from 'bootstrap'
 import 'vue-loading-overlay/dist/vue-loading.css'
-// import 'bootstrap'
+import { ValidationProvider, extend, ValidationObserver, localize, configure } from 'vee-validate'
+import TW from 'vee-validate/dist/locale/zh_TW.json'
+import * as rules from 'vee-validate/dist/rules'
+import 'bootstrap'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
+Vue.use(Vuex)
 // window.bootstrap = bootstrap
 // axios.defaults.withCredentials = true
+Object.keys(rules).forEach((rule) => {
+  extend(rule, rules[rule])
+})
+localize('zh_TW', TW)
+configure({
+  classes: {
+    valid: 'is-valid',
+    invalid: 'is-invalid'
+  }
+})
+Vue.component('ValidationObserver', ValidationObserver)
+Vue.component('ValidationProvider', ValidationProvider)
+
 Vue.component('Loading', Loading)
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
 

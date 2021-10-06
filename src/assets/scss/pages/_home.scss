@@ -3,23 +3,24 @@
 }
 
 .parallax_bg01 {
-  background-image: url('~@/assets/image/parallax_01.jpeg');
+  background-image: url('~@/assets/image/parallax_bg01.png');
   height: 70vh;
-  // height: 70vh;
-}
-.activeBg {
-  // position: relative;
   width: 100%;
-  // height: 500px;
-  background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
 }
 
-.parallax{
-  min-height: 500px;
+.parallax_01 {
+  background-image: url('~@/assets/image/parallax_01.jpeg');
+  height: 70vh;
+}
+.activeBg {
+  // position: relative;
+  width: 100%;
+  height: 500px;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
+  background-size: 100%;
 }
